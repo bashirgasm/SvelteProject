@@ -1,6 +1,7 @@
 <script lang="ts">
   export let recipients;
-    import RecipientsDisplay  from './AuditTable.svelte';
+    import     AuditTable from 'components/AuditTable.svelte';
+
 </script>
 <div class="recipients">
   <h2>{ recipients }</h2>
@@ -23,3 +24,21 @@
     {/each}
   </ol>
 </main>
+/* <script lang="ts">
+  import { groupBy } from 'lodash-es'
+  import DateDisplay from 'components/DateDisplay.svelte'
+  import TimeDisplay from 'components/TimeDisplay.svelte'
+  import RecipientsDisplay from 'components/RecipientsDisplay.svelte'
+  import type { Email } from 'types/Email'
+
+  export let emails: Email[]
+
+  const emailsByDate = groupBy<Email>(emails, ({ datetime }) =>
+    new Date(datetime).toLocaleDateString()
+  )
+  // Convert into an array of arrays based on date sent
+  const emailGroupsByDate = Object.entries(emailsByDate).map(val => val[1])
+</script>
+
+*/
+
